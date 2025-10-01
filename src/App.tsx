@@ -1,45 +1,28 @@
-// import { useState } from "react";
-// import { Button } from "@/components/ui/button";
-import { Prometheus } from "@/components/ui/shadcn-io/apple-hello-effect";
-import { ModeToggle } from "./components/mode-toggle";
-import { Vortex } from "./components/ui/shadcn-io/vortex";
+
+import { Card, CardContent } from "@/components/ui/card";
+import Header from "./components/ui/componentes_main/header";
 
 const App = () => {
   return (
     <>
-    <div className="h-screen w-full overflow-hidden">
-      <Vortex
-        backgroundColor="black"
-        particleCount={700}
-        baseHue={220}
-        baseSpeed={0.0}
-        rangeSpeed={1.5}
-        className="flex items-center justify-center w-full h-full"
-      >
-        {/* Your content floats above the vortex */}
-        <div className="text-center text-white z-10">
-          <h1 className="text-6xl font-bold mb-4">
-            <Prometheus speed={1.1} />
-          </h1>
-          <p className="text-xl opacity-80">
-            Welcome to Prometeo
+    <Header />
+    <div className="w-2/3 pt-0 p-3 flex justify-left">
+      <Card className="w-full max-w-sm">
+        <CardContent>
+          <p>
+            ¿Qué es Prometheus?
+            ¿Para que sirver?
+            Prometheus es una herramienta de monitoreo y alertas open source diseñada para recopilar y almacenar métricas de tiempo real.
+            Es altamente configurable y escalable, lo que la convierte en una elección popular para la monitorización de sistemas y aplicaciones.
+            Prometheus se basa en la idea de recopilar métricas de tiempo real de diversas fuentes, como servidores, bases de datos, servicios web, etc.
+            Estas métricas se almacenan en un almacén de tiempo y se pueden consultar y visualizar mediante herramientas como Grafana.
           </p>
-          <div className="fixed bottom-4 right-4 opacity-50 hover:opacity-100 transition">
-            <ModeToggle />
-          </div>
-        </div>
-      </Vortex>
+        </CardContent>
+      </Card>
     </div>
-      {/* <div className="flex w-full h-screen flex-col justify-center items-center gap-16">
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <ModeToggle />
-      </div>
-      <div className="fixed bottom-4 right-4 opacity-50 hover:opacity-100 transition">
-        <ModeToggle />
-      </div> */}
+    
     </>
+    
   );
 };
 export default App;
