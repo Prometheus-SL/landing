@@ -68,7 +68,7 @@ export function Repo_Github_Item({ repo }: { repo: GithubRepo }) {
       <ItemContent>
         <ItemTitle className="text-lg font-semibold">{repo.name}</ItemTitle>
         <ItemDescription className="text-sm text-muted-foreground">
-          Contributors: {contribuidores} / Total of commits: {count} commits
+          {contribuidores} contributors | {count} commits
         </ItemDescription>
       </ItemContent>
       <ItemActions>
