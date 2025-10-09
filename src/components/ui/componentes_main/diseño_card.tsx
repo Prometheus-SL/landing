@@ -1,5 +1,5 @@
 import { CardBody, CardContainer, CardItem } from "../3d-card";
-import Repo_Github, { Repo_Github_Item } from "./github/repo_github";
+import Repo_Github from "./github/repo_github";
 // import { Card, CardContent } from "../card";
 // import Repo_Github from "./github/repo_github";
 
