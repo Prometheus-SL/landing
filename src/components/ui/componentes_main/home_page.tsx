@@ -1,11 +1,10 @@
 
-import Contenido from "./card_contenido";
+import Contenido from "./landing";
 
 const Header = () => {
   return (
     <>
       <Contenido />
-      
     </>
   );
 };
