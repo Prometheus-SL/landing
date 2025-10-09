@@ -1,15 +1,13 @@
-
-import Policy from "./components/ui/componentes_main/policy/policy";
+import PolicyPage from "./pages/policy_page";
 import HomePage from "./pages/home_page";
 
-
 export const routes = [
-    {
-        path: '/',
-        element: <HomePage />
-    },
-    {
-        path: '/policy',
-        element: <Policy />
-    }
-]
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/policy",
+    element: <PolicyPage />,
+  },
+];
