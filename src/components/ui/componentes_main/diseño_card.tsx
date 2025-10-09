@@ -10,12 +10,12 @@ export function Landing_Card() {
     <>
     <div className="flex justify-center">
       <CardContainer className="px-5 group-hover/card:rotate-[-10deg] transition-all duration-500">
-          <CardBody className="relative group/card  w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
+          <CardBody className="relative group/card  w-auto sm:w-[40rem] h-auto rounded-xl p-4 border">
             <CardItem
               translateZ="50"
-              className="text-xl font-bold text-neutral-600 dark:text-white w-full py-2"
+              className="text-xl font-bold text-neutral-600 dark:text-white w-full"
             >
-              Repositorios en GitHub:
+              <div className="text-xl font-semibold py-4">Repositorios en GitHub:</div>
               <Repo_Github  />
             </CardItem>
           </CardBody>
