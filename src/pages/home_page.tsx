@@ -9,7 +9,7 @@ const HomePage = () => {
       <div className="flex flex-col justify-between min-h-screen">
         <main className="flex flex-col justify-center items-center py-10 md:pt-16">
           <Title
-            title="P R O M E T H E U S"
+            title="PROMETHEUS"
             className="text-8xl mb-8 text-center justify-center"
           />
           <Landing_Card />

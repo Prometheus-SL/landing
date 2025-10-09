@@ -9,8 +9,8 @@ export const Title = (props: TitleProps) => {
   return (
     <BlurText
       text={props.title}
-      delay={150}
-      animateBy="words"
+      delay={50}
+      animateBy="letters"
       direction="top"
       className={props.className}
     />
