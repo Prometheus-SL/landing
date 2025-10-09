@@ -42,26 +42,9 @@ type RepoGithubState = {
 
 
 export function Repo_Github_Item({ repo }: { repo: GithubRepo }) {
-  const [author, setAuthor] = useState<string>("");
+  const [contribuidores, setContribuidores] = useState<string>("");
   const [count, setCount] = useState<number>(0);
 
-  useEffect(() => {
-    axios
-      .get<Commit[]>(
-        `https://api.github.com/repos/Prometheus-SL/${repo.name}/commits`
-      )
-      .then((res) => {
-        const firstCommit = res.data[0];
-        if (firstCommit) {
-          const fullName = firstCommit.commit.author.name.split(" ")
-          const AuthorName = fullName.slice(0, 2).join(" ");
-          setAuthor(AuthorName);
-        }
-      })
-      .catch((err) => {
-        console.error(`Error fetching commits for ${repo.name}:`, err);
-      });
-  }, [repo.name]);
 
   useEffect(() => {
     axios
@@ -69,8 +52,10 @@ export function Repo_Github_Item({ repo }: { repo: GithubRepo }) {
         `https://api.github.com/repos/Prometheus-SL/${repo.name}/contributors`
       )
       .then((res) => {
+        const contributors = res.data.length
         const totalCommits = res.data.reduce((acc, contributor) => acc + contributor.contributions, 0);
         setCount(totalCommits);
+        setContribuidores(contributors.toString());
       })
       .catch((err) => {
         console.error(`Error fetching commits for ${repo.name}:`, err);
@@ -83,7 +68,7 @@ export function Repo_Github_Item({ repo }: { repo: GithubRepo }) {
       <ItemContent>
         <ItemTitle className="text-lg font-semibold">{repo.name}</ItemTitle>
         <ItemDescription className="text-sm text-muted-foreground">
-          Último commit: {author} / Total de contribuciones: {count} commits
+          Contributors: {contribuidores} / Total of commits: {count} commits
         </ItemDescription>
       </ItemContent>
       <ItemActions>

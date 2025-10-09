@@ -15,7 +15,7 @@ export function Landing_Card() {
               translateZ="50"
               className="text-xl font-bold text-neutral-600 dark:text-white w-full"
             >
-              <div className="text-xl font-semibold py-4">Repositorios en GitHub:</div>
+              <div className="text-xl font-semibold py-4">Github Repositories:</div>
               <Repo_Github  />
             </CardItem>
           </CardBody>

@@ -15,7 +15,7 @@ const HomePage = () => {
           className="font-semibold text-gray-100 drop-shadow-[0_2px_8px_rgba(255,255,255,0.25)] text-4xl sm:text-6xl md:text-8xl mb-8 text-center" 
         />
         <Title
-          title="Bienvenido a Prometeo, el hub que unifica el control de dispositivos y servicios con el agente Hermes."
+          title="Welcome to Prometeo, the hub that unifies device and service control with the Hermes agent."
           delay={10}
           className="scroll-m-20 text-xl font-bold tracking-tight text-gray-300 mb-12 px-4 sm:px-0"
         />
