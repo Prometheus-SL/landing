@@ -2,6 +2,7 @@ import BlurText from "../BlurText";
 
 type TitleProps = {
   title: string;
+  className?: string;
 };
 
 export const Title = (props: TitleProps) => {
@@ -11,7 +12,7 @@ export const Title = (props: TitleProps) => {
       delay={150}
       animateBy="words"
       direction="top"
-      className="text-8xl mb-8 text-center justify-center"
+      className={props.className}
     />
   );
 };

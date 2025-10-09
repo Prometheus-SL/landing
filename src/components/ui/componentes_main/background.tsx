@@ -82,7 +82,7 @@ export function Background({ className, children }: HeroGeometricProps) {
     <>
       <div
         className={cn(
-          "absolute min-h-screen w-full justify-center overflow-hidden bg-[#030303]",
+          "fixed inset-0 -z-10 flex justify-center overflow-hidden bg-[#030303]",
           className
         )}
       >
@@ -134,7 +134,7 @@ export function Background({ className, children }: HeroGeometricProps) {
           />
         </div>
       </div>
-      <div className="relative z-100000000000000000 container mx-auto px-4 md:px-6">
+      <div className="w-full z-100 absolute">
         {children}
       </div>
     </>
