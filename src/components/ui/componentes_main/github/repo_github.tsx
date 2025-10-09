@@ -13,8 +13,14 @@ import React from "react";
 type GithubRepo = {
   id: number;
   name: string;
-  description: string | null;
+  description: string;
   html_url: string;
+  license: {
+    key: string;
+    name: string;
+    spdx_id: string;
+    url: string;
+  };
 };
 
 export class Repo_Github extends React.Component {
@@ -39,7 +45,9 @@ export class Repo_Github extends React.Component {
       <div className="items-center justify-center">
         <ul>
           {this.state.repos.map((repo) => (
+            <>
             <Repo_Github_Item key={repo.id} repo={repo} />
+            </>
           ))}
         </ul>
       </div>
@@ -48,13 +56,13 @@ export class Repo_Github extends React.Component {
 }
 
 // Componente que muestra un repo individual
-export function Repo_Github_Item({ repo }: { repo: any }) {
+export function Repo_Github_Item({ repo }: { repo: GithubRepo }) {
   return (
     <Item>
       <ItemContent>
         <ItemTitle>{repo.name}</ItemTitle>
         <ItemDescription>
-          {repo.description || "Sin descripción"}
+          {repo.license.name}
         </ItemDescription>
       </ItemContent>
       <ItemActions>
