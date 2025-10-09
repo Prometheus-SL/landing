@@ -56,9 +56,9 @@ export function Repo_Github_Item({ repo }: { repo: GithubRepo }) {
   
   return (
     <Item variant={"outline"}>
-      <ItemContent>
-        <ItemTitle>{repo.name}</ItemTitle>
-        <ItemDescription>
+      <ItemContent className="space-y-3">
+        <ItemTitle className="text-lg font-semibold">{repo.name}</ItemTitle>
+        <ItemDescription className="text-sm text-muted-foreground">
           {author}
         </ItemDescription>
       </ItemContent>
@@ -83,7 +83,7 @@ export class Repo_Github extends React.Component<{}, RepoGithubState> {
     axios
       .get<GithubRepo[]>("https://api.github.com/users/Prometheus-SL/repos")
       .then((response) => {
-        this.setState({ repos: response.data });
+        this.setState({ repos: response.data.filter(repo => repo.name !== ".github") });
       })
       .catch((error) => {
         console.error("Error fetching repos:", error);

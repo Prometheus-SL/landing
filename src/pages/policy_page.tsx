@@ -4,7 +4,7 @@ import Background from "../components/ui/componentes_main/background";
 function PolicyPage() {
   return (
     <Background>
-      <Title title="P O L I C Y" />
+      <Title title="POLICY" />
     </Background>
   );
 }

@@ -13,7 +13,6 @@ type ElegantShapeProps = {
 
 type HeroGeometricProps = {
   badge?: string;
-  description?: string;
   className?: string;
   children?: ReactNode;
 };
