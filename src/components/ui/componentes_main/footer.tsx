@@ -1,14 +1,17 @@
+import { useNavigate } from "react-router";
+import { Button } from "../button";
 
 
 export function Footer() {
+  let navigate = useNavigate();
   return (
     <>
       <div className="flex justify-center pt-4">
         <div className="pt-4 px-4 font-bold text-center">
           © 2025 Prometheus SL. All rights reserved.
         </div>
-        <div className="pt-4 px-4 font-bold text-center">
-            Policy
+        <div className="pt-4 px-4 font-bold text-center" >
+            <Button onClick={() => navigate('/policy')}>Policy</Button>
         </div>
         <div className="pt-4 px-4 font-bold text-center">About us</div>
       </div>
