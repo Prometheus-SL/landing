@@ -1,7 +1,7 @@
 import LogoLoop from "@/components/LogoLoop";
 import { CardBody, CardContainer, CardItem } from "../3d-card";
 import AnimatedIcon from "./icon";
-import { IconGithub, IconReact, IconRust, IconTailwindcss, IconTypescript} from "./react-icons/si";
+import { IconGithub, IconReact, IconRust, IconTailwindcss, IconTypescript} from "./react-icons/iconos_programacion";
 const techLogos = [
   { node: <IconReact />, title: "React", href: "https://react.dev" },
   { node: <IconGithub />, title: "GitHub", href: "https://github.com" },
