@@ -1,7 +1,6 @@
 import { CardBody, CardContainer, CardItem } from "../3d-card";
 import Repo_Github from "./github/repo_github";
-// import { Card, CardContent } from "../card";
-// import Repo_Github from "./github/repo_github";
+import { AboutUs } from "./aboutus";
 
 
 
@@ -20,6 +19,9 @@ export function Landing_Card() {
             </CardItem>
           </CardBody>
         </CardContainer>
+    </div>
+    <div className="flex justify-center mt-10">
+      <AboutUs />
     </div>
     </>
   );
