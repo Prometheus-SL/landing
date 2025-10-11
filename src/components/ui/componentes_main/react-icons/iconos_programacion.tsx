@@ -5,15 +5,21 @@ import TailWindIcono from "@/assets/tailwind.svg";
 import GithubIcono from "@/assets/github.svg";
 import RustIcono from "@/assets/rust.svg";
 
+export type iconStyle = {
+  width?: string,
+  height?: string,
+};
+
+
 export function IconReact() {
   return (
     <img src={ReactIcono} alt="React Icon" />
   );
 }
 
-export function IconGithub() {
+export function IconGithub( style?: iconStyle) {
   return (
-    <img src={GithubIcono} alt="GitHub Icon" />
+    <img src={GithubIcono} alt="GitHub Icon" style={style} />
   );
 }
 

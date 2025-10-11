@@ -10,8 +10,8 @@ type BotonInicioProps = {
 export const BotonInicio = ({ className, onClick }: BotonInicioProps) => {
     return (
         <div className="flex justify-center mb-10">
-            <ShimmerButton className={className} onClick={onClick}>
-                Prometheus SL
+            <ShimmerButton className={className} onClick={onClick} >
+                ⚡ Empieza tu experiencia con Prometeo ⚡
             </ShimmerButton>
         </div>
     );
