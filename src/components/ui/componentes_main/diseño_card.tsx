@@ -20,7 +20,7 @@ export function Landing_Card() {
           </CardBody>
         </CardContainer>
     </div>
-    <div className="flex justify-center">
+    <div className="flex justify-center mt-10">
       <AboutUs />
     </div>
     </>
