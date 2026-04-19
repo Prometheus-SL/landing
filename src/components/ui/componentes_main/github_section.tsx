@@ -128,7 +128,9 @@ export function GithubSection() {
         <Button
           variant="outline"
           className="w-fit border-white/20 bg-white/[0.03] text-white hover:bg-white/10"
-          onClick={() => window.open("https://github.com/Prometheus-SL", "_blank")}
+          onClick={() =>
+            window.open("https://github.com/Prometheus-SL", "_blank")
+          }
         >
           <Github className="size-4" />
           Organization

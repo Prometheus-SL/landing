@@ -50,7 +50,10 @@ const stackGroups = [
 
 export function TechSection() {
   return (
-    <section id="tech" className="relative border-y border-white/[0.06] px-5 py-24 sm:px-6">
+    <section
+      id="tech"
+      className="relative border-y border-white/[0.06] px-5 py-24 sm:px-6"
+    >
       <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
 
       <div className="mx-auto max-w-7xl">
@@ -68,8 +71,8 @@ export function TechSection() {
             Clear product architecture for a local-agent platform.
           </h2>
           <p className="mt-5 text-lg leading-8 text-zinc-400">
-            PROMETEO is easier to trust when the technical shape is legible:
-            web app, API platform and local agent each have a clear job.
+            PROMETEO is easier to trust when the technical shape is legible: web
+            app, API platform and local agent each have a clear job.
           </p>
         </motion.div>
 

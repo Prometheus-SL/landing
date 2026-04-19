@@ -149,9 +149,7 @@ export function IntegrationsSection() {
             {/* Hover glow */}
             <div className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-white/[0.03] opacity-0 blur-[60px] transition-opacity duration-500 group-hover:opacity-100" />
             <div className="flex items-start gap-4">
-              <div
-                className={`rounded-md border p-2.5 ${integration.accent}`}
-              >
+              <div className={`rounded-md border p-2.5 ${integration.accent}`}>
                 <integration.icon className="size-5" />
               </div>
               <div>
