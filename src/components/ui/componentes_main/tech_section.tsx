@@ -1,118 +1,138 @@
 import { motion } from "framer-motion";
-import LogoLoop from "@/components/LogoLoop";
 import {
-  IconGithub,
-  IconReact,
-  IconRust,
-  IconTailwindcss,
-  IconTypescript,
-} from "./react-icons/iconos_programacion";
+  AppWindow,
+  Braces,
+  Cpu,
+  DatabaseZap,
+  Layers3,
+  ServerCog,
+} from "lucide-react";
 
-const techLogos = [
-  { node: <IconReact />, title: "React", href: "https://react.dev" },
+const architecture = [
   {
-    node: <IconTypescript />,
-    title: "TypeScript",
-    href: "https://www.typescriptlang.org",
+    icon: AppWindow,
+    title: "Web control center",
+    description:
+      "React, TypeScript and Tailwind deliver the dashboards, admin surfaces and module marketplace.",
   },
   {
-    node: <IconTailwindcss />,
-    title: "Tailwind CSS",
-    href: "https://tailwindcss.com",
+    icon: ServerCog,
+    title: "API and realtime core",
+    description:
+      "Node.js, Express, MongoDB and WebSocket endpoints coordinate auth, modules, dashboards and agent state.",
   },
-  { node: <IconRust />, title: "Rust", href: "https://www.rust-lang.org" },
   {
-    node: <IconGithub width="1em" height="1em" />,
-    title: "GitHub",
-    href: "https://github.com/Prometheus-SL",
+    icon: Cpu,
+    title: "Hermes desktop agent",
+    description:
+      "Electron with native Rust bindings keeps device telemetry, media control and system actions close to the machine.",
   },
 ];
 
-const techDetails = [
+const stackGroups = [
   {
-    title: "Frontend",
-    items: [
-      "React 19",
-      "TypeScript",
-      "Tailwind CSS 4",
-      "Framer Motion",
-      "shadcn/ui",
-    ],
+    title: "Interface",
+    items: ["React 19", "TypeScript", "Tailwind CSS 4", "shadcn/ui"],
   },
   {
-    title: "Backend",
-    items: ["Node.js", "Express", "MongoDB", "WebSocket", "JWT Auth"],
+    title: "Platform",
+    items: ["Express", "MongoDB", "JWT", "WebSocket"],
   },
   {
-    title: "Desktop Agent",
-    items: ["Electron", "Rust (native)", "Real-time audio", "System metrics"],
+    title: "Agent",
+    items: ["Electron", "Rust native", "System metrics", "Audio control"],
   },
   {
-    title: "Integrations",
-    items: ["Discord API", "GitHub API", "REST API", "QR Authentication"],
+    title: "Extensibility",
+    items: ["Module contracts", "OAuth links", "REST APIs", "Widget kit"],
   },
 ];
 
 export function TechSection() {
   return (
-    <section id="tech" className="mx-auto max-w-7xl px-6 py-24">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-        className="mb-16 text-center"
-      >
-        <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl xl:text-5xl">
-          Built with modern tech
-        </h2>
-        <p className="mt-4 text-lg text-gray-400">
-          A robust, scalable stack designed for performance and developer
-          experience.
-        </p>
-      </motion.div>
+    <section id="tech" className="border-y border-white/[0.06] bg-white/[0.025] px-5 py-24 sm:px-6">
+      <div className="mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="mb-14 max-w-3xl"
+        >
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.22em] text-cyan-200">
+            Architecture
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl xl:text-5xl">
+            Clear product architecture for a local-agent platform.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-zinc-400">
+            PROMETEO is easier to trust when the technical shape is legible:
+            web app, API platform and local agent each have a clear job.
+          </p>
+        </motion.div>
 
-      {/* Logo loop */}
-      <div className="mb-16">
-        <LogoLoop
-          logos={techLogos}
-          speed={75}
-          direction="right"
-          logoHeight={48}
-          gap={50}
-          pauseOnHover
-          scaleOnHover
-          ariaLabel="Technology stack"
-        />
-      </div>
+        <div className="grid gap-5 lg:grid-cols-3">
+          {architecture.map((layer, index) => (
+            <motion.div
+              key={layer.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="rounded-lg border border-white/[0.08] bg-black/25 p-6"
+            >
+              <div className="mb-6 flex items-center justify-between">
+                <div className="inline-flex rounded-md border border-white/[0.09] bg-white/[0.045] p-3 text-cyan-100">
+                  <layer.icon className="size-6" />
+                </div>
+                <span className="text-sm font-medium text-zinc-600">
+                  0{index + 1}
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-white">
+                {layer.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-zinc-400">
+                {layer.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
 
-      {/* Tech grid */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {techDetails.map((stack, i) => (
-          <motion.div
-            key={stack.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6"
-          >
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-indigo-400">
-              {stack.title}
-            </h3>
-            <ul className="space-y-2">
-              {stack.items.map((tech) => (
-                <li
-                  key={tech}
-                  className="flex items-center gap-2 text-sm text-gray-300"
-                >
-                  <span className="size-1.5 rounded-full bg-indigo-400/60" />
-                  {tech}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
+        <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {stackGroups.map((group, index) => (
+            <motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.06 }}
+              className="rounded-lg border border-white/[0.07] bg-white/[0.035] p-5"
+            >
+              <div className="mb-4 flex items-center gap-2">
+                {index % 2 === 0 ? (
+                  <Layers3 className="size-4 text-emerald-200" />
+                ) : (
+                  <DatabaseZap className="size-4 text-amber-200" />
+                )}
+                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
+                  {group.title}
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                {group.items.map((tech) => (
+                  <li
+                    key={tech}
+                    className="flex items-center gap-2 text-sm text-zinc-300"
+                  >
+                    <Braces className="size-3.5 text-zinc-600" />
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

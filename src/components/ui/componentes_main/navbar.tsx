@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Github, Menu, X } from "lucide-react";
 import { Button } from "../button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Screenshots", href: "#screenshots" },
+  { label: "Platform", href: "#platform" },
+  { label: "Product", href: "#screenshots" },
   { label: "Integrations", href: "#integrations" },
-  { label: "Tech Stack", href: "#tech" },
+  { label: "Architecture", href: "#tech" },
   { label: "GitHub", href: "#github" },
-  { label: "Team", href: "#team" },
 ];
 
 export function Navbar() {
@@ -21,59 +20,58 @@ export function Navbar() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.08] bg-[#030303]/80 backdrop-blur-xl"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-white/[0.08] bg-[#050505]/82 backdrop-blur-xl"
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-        <Link to="/" className="flex items-center gap-2">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6">
+        <Link to="/" className="flex items-center gap-2.5">
           <img src="/favicon.svg" alt="Prometeo" className="h-7 invert" />
-          <span className="text-lg font-semibold text-white">Prometeo</span>
+          <span className="text-base font-semibold tracking-wide text-white">
+            PROMETEO
+          </span>
         </Link>
 
-        {/* Desktop links */}
         <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-gray-400 transition-colors hover:bg-white/[0.06] hover:text-white"
+              className="rounded-md px-3 py-2 text-sm font-medium text-zinc-400 transition-colors hover:bg-white/[0.06] hover:text-white"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-3">
-          <Link to="/policy">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-gray-400 hover:text-white"
-            >
-              Policy
-            </Button>
-          </Link>
+        <div className="hidden items-center gap-3 md:flex">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-zinc-400 hover:text-white"
+            onClick={() => window.open("https://github.com/Prometheus-SL", "_blank")}
+          >
+            <Github className="size-4" />
+            Source
+          </Button>
           <Button
             size="sm"
-            className="bg-white text-black hover:bg-gray-200"
+            className="bg-white text-black hover:bg-zinc-200"
             onClick={() =>
               window.open("https://prometeo.miguelprez.es/", "_blank")
             }
           >
-            Open App
+            Open app
           </Button>
         </div>
 
-        {/* Mobile toggle */}
         <button
-          className="rounded-lg p-2 text-gray-400 hover:bg-white/[0.06] md:hidden"
+          className="rounded-md p-2 text-zinc-400 hover:bg-white/[0.06] md:hidden"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -89,30 +87,41 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-gray-400 transition-colors hover:bg-white/[0.06] hover:text-white"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-zinc-400 transition-colors hover:bg-white/[0.06] hover:text-white"
                 >
                   {link.label}
                 </a>
               ))}
               <div className="mt-2 flex flex-col gap-2">
-                <Link to="/policy" onClick={() => setOpen(false)}>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="w-full text-gray-400"
-                  >
-                    Policy
-                  </Button>
-                </Link>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="w-full text-zinc-400"
+                  onClick={() => {
+                    setOpen(false);
+                    window.open("https://github.com/Prometheus-SL", "_blank");
+                  }}
+                >
+                  <Github className="size-4" />
+                  Source
+                </Button>
                 <Button
                   size="sm"
-                  className="w-full bg-white text-black hover:bg-gray-200"
-                  onClick={() =>
-                    window.open("https://prometeo.miguelprez.es/", "_blank")
-                  }
+                  className="w-full bg-white text-black hover:bg-zinc-200"
+                  onClick={() => {
+                    setOpen(false);
+                    window.open("https://prometeo.miguelprez.es/", "_blank");
+                  }}
                 >
-                  Open App
+                  Open app
                 </Button>
+                <Link
+                  to="/policy"
+                  onClick={() => setOpen(false)}
+                  className="rounded-md px-3 py-2 text-center text-sm font-medium text-zinc-500 transition-colors hover:bg-white/[0.06] hover:text-white"
+                >
+                  Privacy policy
+                </Link>
               </div>
             </div>
           </motion.div>

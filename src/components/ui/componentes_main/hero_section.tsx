@@ -1,126 +1,124 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Command, Github, ShieldCheck } from "lucide-react";
 import { Button } from "../button";
+
+const productSignals = [
+  "Live agent telemetry",
+  "Composable dashboards",
+  "Module marketplace",
+  "Role-based operations",
+];
 
 export function HeroSection() {
   return (
-    <section className="relative mx-auto flex min-h-[90vh] max-w-7xl flex-col items-center justify-center px-6 pt-24 text-center">
-      {/* Badge */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mb-8"
-      >
-        <span className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-sm font-medium text-indigo-300">
-          <Sparkles className="size-4" />
-          Smart Device Management Platform
-        </span>
-      </motion.div>
+    <section className="relative isolate overflow-hidden border-b border-white/[0.08] px-5 pb-14 pt-28 sm:px-6 lg:pt-32">
+      <div className="absolute inset-x-0 bottom-0 top-24 -z-10 overflow-hidden">
+        <img
+          src="/screenshots/hero.png"
+          alt=""
+          className="absolute left-1/2 top-24 w-[min(1500px,118vw)] -translate-x-1/2 rounded-lg border border-white/[0.08] opacity-28 shadow-2xl shadow-black/70 sm:top-20"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#050505_0%,rgba(5,5,5,0.72)_34%,rgba(5,5,5,0.82)_74%,#050505_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.68)_22%,rgba(5,5,5,0.34)_54%,#050505_100%)]" />
+      </div>
 
-      {/* Title */}
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="max-w-4xl text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl xl:text-8xl"
-      >
-        <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-          PROMETEO
-        </span>
-      </motion.h1>
-
-      {/* Subtitle */}
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.5 }}
-        className="mt-6 max-w-2xl text-lg text-gray-400 sm:text-xl"
-      >
-        The hub that unifies device and service control with the Hermes agent.
-        Deploy smart agents, manage modules, and monitor your entire ecosystem
-        from one place.
-      </motion.p>
-
-      {/* Buttons */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.7 }}
-        className="mt-10 flex flex-wrap items-center justify-center gap-4"
-      >
-        <Button
-          size="lg"
-          className="bg-white text-black hover:bg-gray-200 text-base px-8 h-12"
-          onClick={() =>
-            window.open("https://prometeo.miguelprez.es/", "_blank")
-          }
-        >
-          Get started
-          <ArrowRight className="ml-1 size-4" />
-        </Button>
-        <Button
-          variant="outline"
-          size="lg"
-          className="border-white/20 text-white hover:bg-white/10 text-base px-8 h-12"
-          onClick={() => {
-            document
-              .getElementById("features")
-              ?.scrollIntoView({ behavior: "smooth" });
-          }}
-        >
-          Explore features
-        </Button>
-      </motion.div>
-
-      {/* Preview image */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.9 }}
-        className="mt-16 w-full max-w-5xl"
-      >
-        <div className="overflow-hidden rounded-2xl border border-white/[0.1] bg-white/[0.03] shadow-2xl shadow-indigo-500/10">
-          {/* Browser bar */}
-          <div className="flex items-center gap-2 border-b border-white/[0.06] bg-white/[0.04] px-4 py-3">
-            <div className="flex gap-1.5">
-              <div className="size-3 rounded-full bg-red-500/70" />
-              <div className="size-3 rounded-full bg-yellow-500/70" />
-              <div className="size-3 rounded-full bg-green-500/70" />
-            </div>
-            <div className="ml-4 flex-1 rounded-md bg-white/[0.06] px-3 py-1 text-xs text-gray-500">
-              prometeo.miguelprez.es
-            </div>
-          </div>
-          <div className="aspect-video bg-[#0a0a0a]">
-            <img
-              src="/screenshots/hero.png"
-              alt="Prometeo Dashboard Preview"
-              className="size-full object-cover object-top"
-              onError={(e) => {
-                const target = e.currentTarget;
-                target.style.display = "none";
-              }}
-            />
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="mt-12 mb-8"
-      >
+      <div className="mx-auto max-w-7xl">
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="mx-auto size-6 rounded-full border-2 border-white/20 flex items-center justify-center"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.1 }}
+          className="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3.5 py-1.5 text-sm font-medium text-cyan-100"
         >
-          <div className="size-1.5 rounded-full bg-white/40" />
+          <Command className="size-4" />
+          Control center for agents, modules and integrations
         </motion.div>
-      </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.2 }}
+          className="max-w-5xl text-5xl font-semibold tracking-tight text-white sm:text-6xl md:text-7xl xl:text-8xl"
+        >
+          PROMETEO
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.35 }}
+          className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl"
+        >
+          A professional operations layer for the Hermes desktop agent: monitor
+          machines, compose dashboards, install modules and connect services
+          from one secure workspace.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.5 }}
+          className="mt-9 flex flex-wrap items-center gap-3"
+        >
+          <Button
+            size="lg"
+            className="h-12 bg-white px-7 text-base text-black hover:bg-zinc-200"
+            onClick={() =>
+              window.open("https://prometeo.miguelprez.es/", "_blank")
+            }
+          >
+            Open app
+            <ArrowRight className="size-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="h-12 border-white/20 bg-black/20 px-7 text-base text-white hover:bg-white/10"
+            onClick={() =>
+              window.open("https://github.com/Prometheus-SL", "_blank")
+            }
+          >
+            <Github className="size-4" />
+            View source
+          </Button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.62 }}
+          className="mt-12 grid max-w-4xl gap-3 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {productSignals.map((signal) => (
+            <div
+              key={signal}
+              className="flex min-h-16 items-center gap-3 rounded-lg border border-white/[0.08] bg-white/[0.045] px-4 py-3 text-sm text-zinc-300 backdrop-blur"
+            >
+              <ShieldCheck className="size-4 shrink-0 text-emerald-300" />
+              <span>{signal}</span>
+            </div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.75 }}
+          className="mt-16 max-w-3xl border-l border-white/[0.12] pl-5"
+        >
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+            Built for operators
+          </p>
+          <p className="mt-3 text-base leading-7 text-zinc-300">
+            Hermes runs on devices, PROMETEO organizes the control plane, and
+            modules turn integrations into practical dashboard surfaces.
+          </p>
+        </motion.div>
+
+        <div className="mt-14 flex items-center gap-3 text-sm text-zinc-500">
+          <span className="h-px w-10 bg-white/20" />
+          <span>Explore the platform below</span>
+        </div>
+      </div>
     </section>
   );
 }

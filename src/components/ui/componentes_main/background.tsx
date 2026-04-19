@@ -32,8 +32,7 @@ export function Background({ className, children }: HeroGeometricProps) {
       >
         <GridOverlay />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0)_28%,rgba(255,255,255,0)_70%,rgba(255,255,255,0.035))]" />
-        <div className="absolute inset-0 bg-[radial-gradient(1200px_700px_at_50%_-20%,rgba(56,189,248,0.14),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(900px_520px_at_88%_18%,rgba(250,204,21,0.08),transparent_58%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(56,189,248,0.08),transparent_38%,rgba(250,204,21,0.05)_72%,transparent)]" />
       </div>
       <div className="relative z-10 w-full">{children}</div>
     </>

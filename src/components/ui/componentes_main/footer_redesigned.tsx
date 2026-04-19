@@ -3,32 +3,33 @@ import { Github, ExternalLink } from "lucide-react";
 
 export function FooterRedesigned() {
   return (
-    <footer className="border-t border-white/[0.06] bg-[#030303]">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+    <footer className="border-t border-white/[0.06] bg-[#050505]">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
           <div>
             <div className="flex items-center gap-2">
               <img src="/favicon.svg" alt="Prometeo" className="h-6 invert" />
-              <span className="text-lg font-semibold text-white">Prometeo</span>
+              <span className="text-lg font-semibold tracking-wide text-white">
+                PROMETEO
+              </span>
             </div>
-            <p className="mt-3 text-sm text-gray-500">
-              Smart device management platform powered by the Hermes agent.
+            <p className="mt-3 text-sm leading-6 text-zinc-500">
+              Control center for Hermes agents, modular dashboards and service
+              integrations.
             </p>
           </div>
 
-          {/* Product */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-zinc-400">
               Product
             </h4>
-            <ul className="space-y-2 text-sm text-gray-500">
+            <ul className="space-y-2 text-sm text-zinc-500">
               <li>
                 <a
-                  href="#features"
+                  href="#platform"
                   className="transition-colors hover:text-white"
                 >
-                  Features
+                  Platform
                 </a>
               </li>
               <li>
@@ -49,18 +50,17 @@ export function FooterRedesigned() {
               </li>
               <li>
                 <a href="#tech" className="transition-colors hover:text-white">
-                  Tech Stack
+                  Architecture
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Resources */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-zinc-400">
               Resources
             </h4>
-            <ul className="space-y-2 text-sm text-gray-500">
+            <ul className="space-y-2 text-sm text-zinc-500">
               <li>
                 <a
                   href="https://github.com/Prometheus-SL"
@@ -68,7 +68,7 @@ export function FooterRedesigned() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 transition-colors hover:text-white"
                 >
-                  GitHub <ExternalLink className="size-3" />
+                  GitHub organization <ExternalLink className="size-3" />
                 </a>
               </li>
               <li>
@@ -78,18 +78,17 @@ export function FooterRedesigned() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 transition-colors hover:text-white"
                 >
-                  Open App <ExternalLink className="size-3" />
+                  Open app <ExternalLink className="size-3" />
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Legal */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-zinc-400">
               Legal
             </h4>
-            <ul className="space-y-2 text-sm text-gray-500">
+            <ul className="space-y-2 text-sm text-zinc-500">
               <li>
                 <Link
                   to="/policy"
@@ -103,7 +102,7 @@ export function FooterRedesigned() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-8 sm:flex-row">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-zinc-600">
             &copy; {new Date().getFullYear()} Prometheus SL. All rights
             reserved.
           </p>
@@ -111,7 +110,7 @@ export function FooterRedesigned() {
             href="https://github.com/Prometheus-SL"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 transition-colors hover:text-white"
+            className="text-zinc-600 transition-colors hover:text-white"
           >
             <Github className="size-5" />
           </a>

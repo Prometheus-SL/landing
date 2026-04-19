@@ -84,7 +84,7 @@ export function Repo_Github_Item({ repo }: { repo: GithubRepo }) {
   </div>
   );
 }
-export class Repo_Github extends React.Component<{}, RepoGithubState> {
+export class Repo_Github extends React.Component<object, RepoGithubState> {
   state: RepoGithubState = {
     repos: [],
   };
