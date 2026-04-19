@@ -3,7 +3,10 @@ import { Github, ExternalLink } from "lucide-react";
 
 export function FooterRedesigned() {
   return (
-    <footer className="border-t border-white/[0.06] bg-[#050505]">
+    <footer className="relative border-t border-white/[0.06] bg-[#050505]">
+      {/* Accent glow line */}
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
+
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>

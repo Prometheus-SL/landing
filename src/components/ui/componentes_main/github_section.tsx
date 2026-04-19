@@ -113,7 +113,7 @@ export function GithubSection() {
         className="mb-14 flex flex-col justify-between gap-8 lg:flex-row lg:items-end"
       >
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.22em] text-zinc-500">
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.22em] text-emerald-200">
             Open source
           </p>
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl xl:text-5xl">
@@ -144,7 +144,7 @@ export function GithubSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="flex min-h-56 flex-col justify-between rounded-lg border border-white/[0.08] bg-white/[0.035] p-5 transition-colors hover:border-white/[0.15] hover:bg-white/[0.055]"
+            className="group flex min-h-56 flex-col justify-between rounded-lg border border-white/[0.08] bg-white/[0.035] p-5 transition-all duration-300 hover:border-emerald-200/25 hover:bg-white/[0.055] hover:shadow-lg hover:shadow-emerald-500/[0.04]"
           >
             <div>
               <div className="mb-3 flex items-center justify-between gap-3">

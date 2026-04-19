@@ -50,7 +50,9 @@ const stackGroups = [
 
 export function TechSection() {
   return (
-    <section id="tech" className="border-y border-white/[0.06] bg-white/[0.025] px-5 py-24 sm:px-6">
+    <section id="tech" className="relative border-y border-white/[0.06] px-5 py-24 sm:px-6">
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
+
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,7 +81,7 @@ export function TechSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="rounded-lg border border-white/[0.08] bg-black/25 p-6"
+              className="group rounded-lg border border-white/[0.08] bg-black/25 p-6 transition-all duration-300 hover:border-cyan-200/20 hover:shadow-lg hover:shadow-cyan-500/[0.03]"
             >
               <div className="mb-6 flex items-center justify-between">
                 <div className="inline-flex rounded-md border border-white/[0.09] bg-white/[0.045] p-3 text-cyan-100">

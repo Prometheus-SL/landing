@@ -144,8 +144,10 @@ export function IntegrationsSection() {
           <motion.div
             key={integration.name}
             variants={item}
-            className="rounded-lg border border-white/[0.08] bg-white/[0.035] p-5 transition-colors hover:border-white/[0.14] hover:bg-white/[0.055]"
+            className="group relative overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.035] p-5 transition-all duration-300 hover:border-white/[0.14] hover:bg-white/[0.055] hover:shadow-lg hover:shadow-white/[0.02]"
           >
+            {/* Hover glow */}
+            <div className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-white/[0.03] opacity-0 blur-[60px] transition-opacity duration-500 group-hover:opacity-100" />
             <div className="flex items-start gap-4">
               <div
                 className={`rounded-md border p-2.5 ${integration.accent}`}

@@ -76,8 +76,9 @@ export function ScreenshotsSection() {
   return (
     <section
       id="screenshots"
-      className="border-y border-white/[0.06] bg-white/[0.025] px-5 py-24 sm:px-6 lg:px-12"
+      className="relative border-y border-white/[0.06] px-5 py-24 sm:px-6 lg:px-12"
     >
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
