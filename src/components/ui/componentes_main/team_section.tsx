@@ -8,7 +8,8 @@ const team = [
     image: "https://avatars.githubusercontent.com/u/61310771?v=4",
     focus: "Product architecture, integrations and full-stack delivery.",
     github: "https://github.com/miguelprez",
-    accent: "cyan",
+    linkedin: "https://www.linkedin.com/in/miguel-%C3%A1ngel-p%C3%A9rez-garc%C3%ADa-305a1620a/",
+    accent: "yellow",
   },
   {
     name: "Raul Hernandez Salcedo",
@@ -16,17 +17,18 @@ const team = [
     image: "https://avatars.githubusercontent.com/u/67696106?v=4",
     focus: "Platform engineering, interface systems and operational tooling.",
     github: "https://github.com/raulhernandezs",
+    linkedin: "https://www.linkedin.com/in/raul-hernandez-salcedo/",
     accent: "amber",
   },
 ];
 
 const ringColor: Record<string, string> = {
-  cyan: "ring-cyan-400/40 shadow-cyan-500/20",
+  yellow: "ring-yellow-400/40 shadow-yellow-500/20",
   amber: "ring-amber-400/40 shadow-amber-500/20",
 };
 
 const accentDot: Record<string, string> = {
-  cyan: "bg-cyan-400",
+  yellow: "bg-yellow-400",
   amber: "bg-amber-400",
 };
 
@@ -65,7 +67,7 @@ export function TeamSection() {
             {/* Subtle glow behind avatar */}
             <div
               className={`pointer-events-none absolute -left-12 -top-12 size-48 rounded-full opacity-0 blur-[80px] transition-opacity duration-500 group-hover:opacity-100 ${
-                member.accent === "cyan" ? "bg-cyan-500/15" : "bg-amber-500/15"
+                member.accent === "yellow" ? "bg-yellow-500/15" : "bg-amber-500/15"
               }`}
             />
 
@@ -101,6 +103,16 @@ export function TeamSection() {
                   >
                     <Github className="size-3.5" />
                     GitHub
+                    <ExternalLink className="size-3" />
+                  </a>
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-md border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-400 transition-colors hover:border-white/[0.15] hover:text-white"
+                  >
+                    <Linkedin className="size-3.5" />
+                    LinkedIn
                     <ExternalLink className="size-3" />
                   </a>
                 </div>
