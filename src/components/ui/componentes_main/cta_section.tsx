@@ -13,7 +13,7 @@ export function CtaSection() {
         className="mx-auto flex max-w-7xl flex-col justify-between gap-8 lg:flex-row lg:items-center"
       >
         <div className="max-w-3xl">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-cyan-200/20 bg-cyan-200/10 px-3 py-1.5 text-sm font-medium text-cyan-100">
+          <div className="mb-5 flex items-center gap-2 text-sm font-medium uppercase tracking-[0.18em] text-cyan-100">
             <Radar className="size-4" />
             Ready for operators
           </div>

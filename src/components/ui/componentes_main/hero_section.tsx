@@ -11,33 +11,33 @@ const productSignals = [
 
 export function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden border-b border-white/[0.08] px-5 pb-14 pt-28 sm:px-6 lg:pt-32">
-      <div className="absolute inset-x-0 bottom-0 top-24 -z-10 overflow-hidden">
+    <section className="relative isolate min-h-[86vh] overflow-hidden border-b border-white/[0.08] px-5 pb-14 pt-28 sm:px-6 lg:pt-32">
+      <div className="absolute inset-x-0 bottom-0 top-16 z-0 overflow-hidden">
         <img
           src="/screenshots/hero.png"
           alt=""
-          className="absolute left-1/2 top-24 w-[min(1500px,118vw)] -translate-x-1/2 rounded-lg border border-white/[0.08] opacity-28 shadow-2xl shadow-black/70 sm:top-20"
+          className="absolute left-1/2 top-24 w-[min(1500px,118vw)] -translate-x-1/2 rounded-lg border border-white/[0.08] opacity-24 shadow-2xl shadow-black/70 sm:top-20"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#050505_0%,rgba(5,5,5,0.72)_34%,rgba(5,5,5,0.82)_74%,#050505_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.68)_22%,rgba(5,5,5,0.34)_54%,#050505_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#050505_0%,rgba(5,5,5,0.58)_30%,rgba(5,5,5,0.78)_72%,#050505_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.78)_34%,rgba(5,5,5,0.46)_66%,#050505_100%)]" />
       </div>
 
-      <div className="mx-auto max-w-7xl">
+      <div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.1 }}
-          className="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3.5 py-1.5 text-sm font-medium text-cyan-100"
+          className="mb-7 flex items-center gap-2 text-sm font-medium uppercase tracking-[0.18em] text-cyan-100"
         >
           <Command className="size-4" />
-          Control center for agents, modules and integrations
+          Agents, modules and integrations
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.2 }}
-          className="max-w-5xl text-5xl font-semibold tracking-tight text-white sm:text-6xl md:text-7xl xl:text-8xl"
+          className="max-w-5xl text-5xl font-semibold tracking-tight text-white drop-shadow-2xl sm:text-6xl md:text-7xl xl:text-8xl"
         >
           PROMETEO
         </motion.h1>
