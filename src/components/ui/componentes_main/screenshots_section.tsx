@@ -115,6 +115,8 @@ export function ScreenshotsSection() {
                 key={shot.src}
                 src={shot.src}
                 alt={`${shot.title} screen in Prometeo`}
+                loading="lazy"
+                decoding="async"
                 initial={{ opacity: 0, scale: 1.01 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.995 }}

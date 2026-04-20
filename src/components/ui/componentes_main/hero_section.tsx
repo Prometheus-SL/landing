@@ -70,6 +70,8 @@ export function HeroSection() {
         <img
           src="/screenshots/hero.png"
           alt=""
+          loading="lazy"
+          decoding="async"
           className="absolute left-1/2 top-28 w-[min(1580px,122vw)] -translate-x-1/2 rounded-lg border border-white/[0.08] opacity-[0.34] shadow-2xl shadow-black/70 lg:top-20"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#050505_0%,rgba(5,5,5,0.22)_24%,rgba(5,5,5,0.7)_78%,#050505_100%)]" />
@@ -99,6 +101,8 @@ export function HeroSection() {
           <img
             src="/screenshots/dashboard.png"
             alt=""
+            loading="lazy"
+            decoding="async"
             className="aspect-video w-full object-cover object-top opacity-90"
           />
         </motion.div>
