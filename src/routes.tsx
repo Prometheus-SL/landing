@@ -1,13 +1,25 @@
-import PolicyPage from "./pages/policy_page";
+import { lazy, Suspense } from "react";
+import { Layout } from "@/components/Layout";
 import HomePage from "./pages/home_page";
+
+const PolicyPage = lazy(() => import("./pages/policy_page"));
 
 export const routes = [
   {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/policy",
-    element: <PolicyPage />,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/policy",
+        element: (
+          <Suspense fallback={null}>
+            <PolicyPage />
+          </Suspense>
+        ),
+      },
+    ],
   },
 ];
