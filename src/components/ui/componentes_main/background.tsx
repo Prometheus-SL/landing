@@ -1,73 +1,51 @@
-import { cn } from "@/lib/utils";
-import { type ReactNode } from "react";
-import { motion } from "framer-motion";
+import type { ReactNode } from "react";
 
-type HeroGeometricProps = {
-  className?: string;
-  children?: ReactNode;
-};
-
-function GridOverlay() {
-  return (
-    <div
-      className="absolute inset-0 opacity-[0.045]"
-      style={{
-        backgroundImage: `
-          linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-        `,
-        backgroundSize: "80px 80px",
-      }}
-    />
-  );
-}
-
-export function Background({ className, children }: HeroGeometricProps) {
+export default function Background({ children }: { children: ReactNode }) {
   return (
     <>
-      <div
-        className={cn(
-          "fixed inset-0 -z-10 overflow-hidden bg-[#050505]",
-          className,
-        )}
-      >
-        <GridOverlay />
-
-        {/* Vertical gradient fade */}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0)_24%,rgba(255,255,255,0)_76%,rgba(255,255,255,0.03))]" />
-
-        {/* Diagonal color bleed */}
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(56,189,248,0.07),transparent_35%,rgba(250,204,21,0.04)_75%,transparent)]" />
-
-        {/* Floating ambient glow orbs */}
-        <motion.div
-          className="absolute left-[15%] top-[20%] size-[400px] rounded-full bg-cyan-500/[0.04] blur-[120px]"
-          animate={{
-            x: [0, 60, -30, 0],
-            y: [0, -40, 30, 0],
+      <div className="bg-layer">
+        <div className="bg-grid" />
+        <div
+          className="orb"
+          style={{
+            left: "12%",
+            top: "18%",
+            width: 520,
+            height: 520,
+            background: "rgba(6,182,212,0.05)",
+            filter: "blur(130px)",
+            animationDuration: "26s",
           }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div
-          className="absolute bottom-[15%] right-[20%] size-[350px] rounded-full bg-amber-500/[0.035] blur-[120px]"
-          animate={{
-            x: [0, -50, 40, 0],
-            y: [0, 30, -50, 0],
+        <div
+          className="orb"
+          style={{
+            right: "14%",
+            bottom: "20%",
+            width: 460,
+            height: 460,
+            background: "rgba(245,158,11,0.038)",
+            filter: "blur(130px)",
+            animationDuration: "32s",
+            animationDelay: "-10s",
           }}
-          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div
-          className="absolute left-[55%] top-[60%] size-[280px] rounded-full bg-emerald-500/[0.025] blur-[100px]"
-          animate={{
-            x: [0, 40, -20, 0],
-            y: [0, -30, 20, 0],
+        <div
+          className="orb"
+          style={{
+            left: "55%",
+            top: "55%",
+            width: 340,
+            height: 340,
+            background: "rgba(139,92,246,0.028)",
+            filter: "blur(110px)",
+            animationDuration: "38s",
+            animationDelay: "-18s",
           }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
-      <div className="relative z-10 w-full">{children}</div>
+      <div className="scan-line" />
+      <div className="page">{children}</div>
     </>
   );
 }
-
-export default Background;

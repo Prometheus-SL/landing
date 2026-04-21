@@ -1,57 +1,63 @@
-import { motion } from "framer-motion";
-import { Bot, LayoutDashboard, PlugZap, ShieldCheck } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
-const stats = [
-  {
-    icon: Bot,
-    value: "Hermes",
-    label: "Desktop agent for device control and telemetry",
-  },
-  {
-    icon: LayoutDashboard,
-    value: "Dashboards",
-    label: "Composable widgets for daily operations",
-  },
-  {
-    icon: PlugZap,
-    value: "Modules",
-    label: "Installable integrations and product surfaces",
-  },
-  {
-    icon: ShieldCheck,
-    value: "Access",
-    label: "Roles, admin tools and private workspace flows",
-  },
+type Stat = { label: string; target: number | null };
+
+const stats: Stat[] = [
+  { label: "Modules available", target: 24 },
+  { label: "Service integrations", target: 7 },
+  { label: "Public repositories", target: 4 },
+  { label: "Desktop agent (Hermes)", target: null },
 ];
+
+function AnimatedNumber({ target }: { target: number | null }) {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const [value, setValue] = useState(target === null ? 1 : 0);
+
+  useEffect(() => {
+    if (target === null || !ref.current) return;
+    const element = ref.current;
+    let rafId = 0;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        const duration = 1400;
+        const start = performance.now();
+        const step = (now: number) => {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          setValue(Math.round(eased * target));
+          if (p < 1) rafId = requestAnimationFrame(step);
+          else setValue(target);
+        };
+        rafId = requestAnimationFrame(step);
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [target]);
+
+  return <span ref={ref}>{value}</span>;
+}
 
 export function StatsSection() {
   return (
-    <section className="relative border-y border-white/[0.06]">
-      {/* Subtle top glow line */}
-      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
-
-      <div className="mx-auto grid max-w-7xl gap-px px-5 py-6 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
-        {stats.map((stat, i) => (
-          <motion.div
-            key={stat.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group rounded-lg border border-white/[0.06] bg-black/20 p-5 transition-all duration-300 hover:border-cyan-200/20 hover:bg-white/[0.04]"
-          >
-            <div className="mb-4 inline-flex rounded-md border border-cyan-200/20 bg-cyan-200/10 p-2.5 text-cyan-200 transition-transform duration-300 group-hover:scale-110">
-              <stat.icon className="size-5" />
+    <div className="stats-bar">
+      <div className="stats-inner">
+        {stats.map((stat) => (
+          <div key={stat.label} className="stat-item">
+            <div className="stat-num">
+              <AnimatedNumber target={stat.target} />
             </div>
-            <div className="text-lg font-semibold text-white drop-shadow-sm sm:text-xl">
-              {stat.value}
-            </div>
-            <div className="mt-2 text-sm leading-6 text-zinc-400">
-              {stat.label}
-            </div>
-          </motion.div>
+            <div className="stat-label">{stat.label}</div>
+          </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

@@ -1,61 +1,58 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Github, Radar } from "lucide-react";
-import { Button } from "../button";
+import { ArrowRight, Radar } from "lucide-react";
+
+const GithubIcon = ({ size = 15 }: { size?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
 
 export function CtaSection() {
   return (
-    <section className="relative overflow-hidden border-y border-white/[0.06] px-5 py-24 sm:px-6">
-      {/* Atmospheric glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/4 top-0 h-64 w-96 rounded-full bg-cyan-500/[0.07] blur-[100px]" />
-        <div className="absolute bottom-0 right-1/4 h-64 w-96 rounded-full bg-amber-500/[0.05] blur-[100px]" />
+    <div className="cta-section">
+      <div className="cta-grid-bg" />
+      <div className="cta-glow-l" />
+      <div className="cta-glow-r" />
+      <div className="cta-inner">
+        <div className="section-eyebrow" style={{ marginBottom: 24 }}>
+          <Radar size={13} />
+          Ready for operators
+        </div>
+        <h2 className="cta-title">
+          Open the control center.
+          <br />
+          Evaluate the <span>real product</span>.
+        </h2>
+        <p className="cta-sub">
+          PROMETEO is more convincing when users can see the dashboard, the agent model and the module system working together.
+        </p>
+        <div className="cta-actions">
+          <button
+            type="button"
+            className="btn-primary"
+            onClick={() => window.open("https://prometeo.miguelprez.es", "_blank")}
+          >
+            Open app <ArrowRight size={15} />
+          </button>
+          <button
+            type="button"
+            className="btn-outline"
+            onClick={() => window.open("https://github.com/Prometheus-SL", "_blank")}
+          >
+            <GithubIcon />
+            View GitHub
+          </button>
+        </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-        className="relative mx-auto flex max-w-7xl flex-col justify-between gap-10 lg:flex-row lg:items-center"
-      >
-        <div className="max-w-3xl">
-          <div className="mb-5 flex items-center gap-2 text-sm font-medium uppercase tracking-[0.18em] text-cyan-200">
-            <Radar className="size-4" />
-            Ready for operators
-          </div>
-          <h2 className="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-3xl font-semibold tracking-tight text-transparent sm:text-4xl xl:text-5xl">
-            Open the control center and evaluate the real product.
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-zinc-400">
-            PROMETEO is most convincing when users can see the dashboard, the
-            agent model and the module system working together.
-          </p>
-        </div>
-
-        <div className="flex flex-wrap gap-3 lg:flex-col lg:justify-end">
-          <Button
-            size="lg"
-            className="h-12 bg-cyan-200 px-7 text-base text-black shadow-lg shadow-cyan-950/40 hover:bg-white"
-            onClick={() =>
-              window.open("https://prometeo.miguelprez.es/", "_blank")
-            }
-          >
-            Open app
-            <ArrowRight className="size-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="h-12 border-white/20 bg-black/35 px-7 text-base text-white backdrop-blur hover:bg-white/10"
-            onClick={() =>
-              window.open("https://github.com/Prometheus-SL", "_blank")
-            }
-          >
-            <Github className="size-4" />
-            Source
-          </Button>
-        </div>
-      </motion.div>
-    </section>
+    </div>
   );
 }
